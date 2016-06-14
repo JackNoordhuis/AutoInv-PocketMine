@@ -107,6 +107,7 @@ class EventListener implements Listener {
 			foreach($explosive->getLevel()->getNearbyEntities($explosive->getBoundingBox()->grow(24, 24, 24)) as $nearby) {
 				if($explosive->distance($nearby) <= $closest) {
 					$entity = $nearby;
+					$closest = $explosive->distance($nearby);
 				}
 			}
 			$disallowed = [
