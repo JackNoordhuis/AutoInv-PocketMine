@@ -8,7 +8,7 @@
  * @author Jack
  */
 
-namespace autoinv;
+namespace jacknoordhuis\autoinv;
 
 use pocketmine\plugin\PluginBase;
 
