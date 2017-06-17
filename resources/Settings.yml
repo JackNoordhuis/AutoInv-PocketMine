@@ -1,0 +1,9 @@
+###  AutoInv v0.0.3 configuration file  ###
+general:
+  events:
+    # Add block drops directly to players' inventories?
+    block-break: true
+    # Add players inventory contents directly to their last attackers inventory on death?
+    player-death: false
+    # Add explosion drops directly to the nearest entities inventory?
+    entity-explosion: false

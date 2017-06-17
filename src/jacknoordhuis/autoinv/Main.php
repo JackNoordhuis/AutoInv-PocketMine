@@ -11,14 +11,29 @@
 namespace jacknoordhuis\autoinv;
 
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\Config;
 
 class Main extends PluginBase {
 
-	/** $listener EventListener */
+	/** @var EventListener */
 	public $listener;
 
+	/** @var Config */
+	private $settings;
+
+	const SETTINGS_CONFIG = "Settings.yml";
+
 	public function onEnable() {
+		$this->saveResource(self::SETTINGS_CONFIG);
+		$this->settings = new Config($this->getDataFolder() . self::SETTINGS_CONFIG, Config::YAML);
 		$this->setListener();
+	}
+
+	/**
+	 * @return Config
+	 */
+	public function getSettings() : Config {
+		return $this->settings;
 	}
 
 	/**

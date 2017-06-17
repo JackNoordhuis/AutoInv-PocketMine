@@ -10,18 +10,21 @@
 
 namespace jacknoordhuis\autoinv;
 
-use pocketmine\event\Listener;
-use pocketmine\inventory\InventoryHolder;
 use pocketmine\block\Block;
-
 use pocketmine\event\block\BlockBreakEvent;
-use pocketmine\event\entity\EntityDeathEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityDeathEvent;
 use pocketmine\event\entity\EntityExplodeEvent;
+use pocketmine\event\EventPriority;
+use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\inventory\InventoryHolder;
+use pocketmine\item\Item;
+use pocketmine\plugin\MethodEventExecutor;
 
 class EventListener implements Listener {
 
-	/** @var $plugin Main */
+	/** @var Main */
 	private $plugin;
 
 	/**
@@ -31,15 +34,28 @@ class EventListener implements Listener {
 	 */
 	public function __construct(Main $plugin) {
 		$this->plugin = $plugin;
-		$plugin->getServer()->getPluginManager()->registerEvents($this, $plugin);
+		$settings = $plugin->getSettings();
+		if((bool) $settings->getNested("general.events.block-break")) $this->registerEventHandler(BlockBreakEvent::class, "onBreak", EventPriority::HIGHEST, true);
+		if((bool) $settings->getNested("general.events.player-death")) $this->registerEventHandler(PlayerDeathEvent::class, "onDeath", EventPriority::HIGHEST, false);
+		if((bool) $settings->getNested("general.events.entity-explosion")) $this->registerEventHandler(EntityExplodeEvent::class, "onExplode", EventPriority::HIGHEST, true);
 	}
 
 	/**
-	 * Get the owning plugin
+	 * Register an event handler function to the plugin manager for this class
 	 *
+	 * @param string $eventClass
+	 * @param string $method
+	 * @param int $priority
+	 * @param bool $ignoreCancelled
+	 */
+	protected function registerEventHandler(string $eventClass, string $method, int $priority, bool $ignoreCancelled) {
+		$this->plugin->getServer()->getPluginManager()->registerEvent($eventClass, $this, $priority, new MethodEventExecutor($method), $this->plugin, $ignoreCancelled);
+	}
+
+	/**
 	 * @return Main
 	 */
-	public function getPlugin() {
+	public function getPlugin() : Main {
 		return $this->plugin;
 	}
 
@@ -47,18 +63,10 @@ class EventListener implements Listener {
 	 * Handles autoinv block breaking
 	 *
 	 * @param BlockBreakEvent $event
-	 *
-	 * @return null
-	 *
-	 * @priority HIGHEST
 	 */
 	public function onBreak(BlockBreakEvent $event) {
-		if($event->isCancelled()) {
-			return;
-		} else {
-			foreach($event->getDrops() as $drop) {
-				$event->getPlayer()->getInventory()->addItem($drop);
-			}
+		foreach($event->getDrops() as $drop) {
+			$event->getPlayer()->getInventory()->addItem($drop);
 		}
 		$event->setDrops([]);
 	}
@@ -66,70 +74,56 @@ class EventListener implements Listener {
 	/**
 	 * Handles autoinv entity death
 	 *
-	 * @param EntityDeathEvent $event
-	 *
-	 * @return null
-	 *
-	 * @priority HIGHEST
+	 * @param PlayerDeathEvent $event
 	 */
-	public function onDeath(EntityDeathEvent $event) {
+	public function onDeath(PlayerDeathEvent $event) {
 		$victim = $event->getEntity();
 		$cause = $victim->getLastDamageCause();
 		if($cause instanceof EntityDamageByEntityEvent) {
 			$killer = $cause->getDamager();
 			if($killer instanceof InventoryHolder) {
+				$drops = [];
 				foreach($event->getDrops() as $drop) {
-					$killer->getInventory()->addItem($drop);
+					if($killer->getInventory()->canAddItem($drop)) {
+						$killer->getInventory()->addItem($drop);
+					} else {
+						$drops[] = $drop;
+					}
 				}
+				$event->setDrops($drops);
 			}
-		} else {
-			$event->setDrops([]);
 		}
-		return;
 	}
 
 	/**
 	 * Handles autoinv entity exploding
 	 *
 	 * @param EntityExplodeEvent $event
-	 *
-	 * @return null
-	 *
-	 * @priority HIGHEST
 	 */
 	public function onExplode(EntityExplodeEvent $event) {
-		if($event->isCancelled()) {
-			return;
-		} else {
-			$explosive = $event->getEntity();
-			$closest = PHP_INT_MAX;
-			$entity = null;
-			foreach($explosive->getLevel()->getNearbyEntities($explosive->getBoundingBox()->grow(24, 24, 24)) as $nearby) {
-				if($explosive->distance($nearby) <= $closest) {
-					$entity = $nearby;
-					$closest = $explosive->distance($nearby);
-				}
+		$explosive = $event->getEntity();
+		$closest = PHP_INT_MAX;
+		$entity = null;
+		foreach($explosive->getLevel()->getNearbyEntities($explosive->getBoundingBox()->grow(24, 24, 24)) as $nearby) {
+			if($nearby instanceof InventoryHolder and $explosive->distance($nearby) <= $closest) {
+				$entity = $nearby;
+				$closest = $explosive->distance($nearby);
 			}
-			$disallowed = [
-				Block::TNT,
-				Block::FIRE,
-				Block::LAVA,
-				Block::WATER,
-				Block::STILL_LAVA,
-				Block::STILL_WATER,
-			];
-			$blocks = $event->getBlockList();
-			if($entity instanceof InventoryHolder) {
-				foreach($blocks as $key => $block) {
-					if(isset($disallowed[$block->getId()])) {
-						continue;
-					}
-					$entity->getInventory()->addItem($block);
-					unset($blocks[$key]);
-				}
-			}
-			$event->setBlockList($blocks);
 		}
-		return;
+
+		$blocks = $event->getBlockList();
+		$yield = $event->getYield();
+		$event->setYield(0); // Make sure no item entities are dropped by the explosion
+		if($entity !== null) {
+			$air = Item::get(Item::AIR);
+			/** @var Block $block */
+			foreach($blocks as $key => $block) {
+				if(mt_rand(0, 100) < $yield) {
+					foreach($block->getDrops($air) as $item) {
+						$entity->getInventory()->addItem(Item::get(...$item));
+					}
+				}
+			}
+		}
 	}
 }
