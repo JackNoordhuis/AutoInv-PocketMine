@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectCodeStyleSettingsManager">
+    <option name="PER_PROJECT_SETTINGS">
+      <value>
+        <option name="AUTODETECT_INDENTS" value="false" />
+        <option name="OTHER_INDENT_OPTIONS">
+          <value>
+            <option name="INDENT_SIZE" value="8" />
+            <option name="CONTINUATION_INDENT_SIZE" value="8" />
+            <option name="TAB_SIZE" value="8" />
+            <option name="USE_TAB_CHARACTER" value="true" />
+            <option name="SMART_TABS" value="true" />
+            <option name="LABEL_INDENT_SIZE" value="0" />
+            <option name="LABEL_INDENT_ABSOLUTE" value="false" />
+            <option name="USE_RELATIVE_INDENTS" value="false" />
+          </value>
+        </option>
+        <option name="RIGHT_MARGIN" value="420" />
+        <option name="HTML_DO_NOT_INDENT_CHILDREN_OF" value="thead,tbody,tfoot" />
+        <JSON>
+          <option name="ARRAY_WRAPPING" value="1" />
+        </JSON>
+        <PHPCodeStyleSettings>
+          <option name="COMMA_AFTER_LAST_ARRAY_ELEMENT" value="true" />
+          <option name="PHPDOC_BLANK_LINES_AROUND_PARAMETERS" value="true" />
+          <option name="LOWER_CASE_BOOLEAN_CONST" value="true" />
+          <option name="LOWER_CASE_NULL_CONST" value="true" />
+          <option name="KEEP_RPAREN_AND_LBRACE_ON_ONE_LINE" value="true" />
+          <option name="SPACE_BEFORE_CLOSURE_LEFT_PARENTHESIS" value="false" />
+          <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true" />
+          <option name="SPACE_BEFORE_COLON_IN_RETURN_TYPE" value="true" />
+          <option name="PREFER_TEMPLATE_INDENTS" value="true" />
+        </PHPCodeStyleSettings>
+        <SqlCodeStyleSettings>
+          <option name="ALIGN_INSIDE_BINARY_EXPRESSION" value="false" />
+          <option name="NEW_LINE_BEFORE_FROM" value="false" />
+          <option name="NEW_LINE_BEFORE_WHERE" value="false" />
+          <option name="NEW_LINE_BEFORE_GROUP_BY" value="false" />
+          <option name="NEW_LINE_BEFORE_HAVING" value="false" />
+          <option name="NEW_LINE_BEFORE_THEN" value="false" />
+          <option name="NEW_LINE_BEFORE_ELSE" value="false" />
+          <option name="NEW_LINE_BEFORE_OTHER_CLAUSES" value="false" />
+          <option name="INDENT_SELECT_INTO_CLAUSE" value="true" />
+          <option name="WRAP_INSIDE_SELECT" value="0" />
+          <option name="WRAP_INSIDE_JOIN_EXPRESSION" value="0" />
+          <option name="WRAP_INSIDE_GROUP_BY" value="0" />
+          <option name="WRAP_INSIDE_WHERE" value="0" />
+          <option name="WRAP_INSIDE_ORDER_BY" value="0" />
+          <option name="WRAP_INSIDE_SET" value="0" />
+          <option name="WRAP_INSIDE_BINARY_EXPRESSION" value="0" />
+          <option name="WRAP_INSIDE_ARGUMENT_DEFINITION" value="0" />
+          <option name="WRAP_INSIDE_CALL_EXPRESSION" value="0" />
+          <option name="WRAP_INSIDE_VALUES_EXPRESSION" value="0" />
+          <option name="WRAP_VALUES_EXPRESSION" value="0" />
+          <option name="WRAP_PARENTHESIZED_EXPRESSION_INSIDE_VALUES" value="0" />
+          <option name="NEW_LINE_AFTER_SELECT_2" value="2" />
+          <option name="QUOTE_IDENTIFIER" value="0" />
+        </SqlCodeStyleSettings>
+        <XML>
+          <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
+        </XML>
+        <codeStyleSettings language="Blade">
+          <indentOptions>
+            <option name="INDENT_SIZE" value="48" />
+            <option name="TAB_SIZE" value="8" />
+            <option name="USE_TAB_CHARACTER" value="true" />
+            <option name="SMART_TABS" value="true" />
+          </indentOptions>
+        </codeStyleSettings>
+        <codeStyleSettings language="CSS">
+          <indentOptions>
+            <option name="INDENT_SIZE" value="8" />
+            <option name="TAB_SIZE" value="8" />
+            <option name="USE_TAB_CHARACTER" value="true" />
+            <option name="SMART_TABS" value="true" />
+          </indentOptions>
+        </codeStyleSettings>
+        <codeStyleSettings language="HTML">
+          <indentOptions>
+            <option name="INDENT_SIZE" value="8" />
+            <option name="TAB_SIZE" value="8" />
+            <option name="USE_TAB_CHARACTER" value="true" />
+            <option name="SMART_TABS" value="true" />
+          </indentOptions>
+        </codeStyleSettings>
+        <codeStyleSettings language="JSON">
+          <indentOptions>
+            <option name="INDENT_SIZE" value="8" />
+            <option name="TAB_SIZE" value="8" />
+            <option name="USE_TAB_CHARACTER" value="true" />
+            <option name="SMART_TABS" value="true" />
+          </indentOptions>
+        </codeStyleSettings>
+        <codeStyleSettings language="JavaScript">
+          <indentOptions>
+            <option name="INDENT_SIZE" value="8" />
+            <option name="CONTINUATION_INDENT_SIZE" value="8" />
+            <option name="TAB_SIZE" value="8" />
+            <option name="USE_TAB_CHARACTER" value="true" />
+            <option name="SMART_TABS" value="true" />
+          </indentOptions>
+        </codeStyleSettings>
+        <codeStyleSettings language="PHP">
+          <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
+          <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
+          <option name="KEEP_CONTROL_STATEMENT_IN_ONE_LINE" value="false" />
+          <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1" />
+          <option name="KEEP_BLANK_LINES_IN_CODE" value="0" />
+          <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="0" />
+          <option name="BLANK_LINES_AFTER_PACKAGE" value="1" />
+          <option name="BLANK_LINES_AFTER_CLASS_HEADER" value="1" />
+          <option name="CLASS_BRACE_STYLE" value="1" />
+          <option name="METHOD_BRACE_STYLE" value="1" />
+          <option name="SPACE_AFTER_TYPE_CAST" value="true" />
+          <option name="SPACE_BEFORE_IF_PARENTHESES" value="false" />
+          <option name="SPACE_BEFORE_WHILE_PARENTHESES" value="false" />
+          <option name="SPACE_BEFORE_FOR_PARENTHESES" value="false" />
+          <option name="SPACE_BEFORE_CATCH_PARENTHESES" value="false" />
+          <option name="SPACE_BEFORE_SWITCH_PARENTHESES" value="false" />
+          <option name="WRAP_ON_TYPING" value="0" />
+          <indentOptions>
+            <option name="INDENT_SIZE" value="8" />
+            <option name="CONTINUATION_INDENT_SIZE" value="8" />
+            <option name="TAB_SIZE" value="8" />
+            <option name="USE_TAB_CHARACTER" value="true" />
+            <option name="SMART_TABS" value="true" />
+          </indentOptions>
+          <arrangement>
+            <groups />
+          </arrangement>
+        </codeStyleSettings>
+        <codeStyleSettings language="SQL">
+          <option name="KEEP_LINE_BREAKS" value="false" />
+          <indentOptions>
+            <option name="INDENT_SIZE" value="8" />
+            <option name="CONTINUATION_INDENT_SIZE" value="8" />
+            <option name="TAB_SIZE" value="8" />
+            <option name="USE_TAB_CHARACTER" value="true" />
+            <option name="SMART_TABS" value="true" />
+          </indentOptions>
+        </codeStyleSettings>
+        <codeStyleSettings language="Twig">
+          <indentOptions>
+            <option name="INDENT_SIZE" value="8" />
+            <option name="TAB_SIZE" value="8" />
+            <option name="USE_TAB_CHARACTER" value="true" />
+            <option name="SMART_TABS" value="true" />
+          </indentOptions>
+        </codeStyleSettings>
+        <codeStyleSettings language="yaml">
+          <indentOptions>
+            <option name="INDENT_SIZE" value="8" />
+          </indentOptions>
+        </codeStyleSettings>
+      </value>
+    </option>
+    <option name="USE_PER_PROJECT_SETTINGS" value="true" />
+  </component>
+</project>
