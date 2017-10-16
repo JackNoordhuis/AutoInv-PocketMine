@@ -1,11 +1,19 @@
 <?php
 
 /**
- * AutoInv EventManager class
+ * EventManager.php – AutoInv
  *
- * Created on October 16, 2017 at 5:10 PM
+ * Copyright (C) 2015-2017 Jack Noordhuis
  *
- * @author Jack
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * @author Jack Noordhuiss
+ *
+ * Last modified on 16/10/2017 at 7:12 PM
+ *
  */
 
 namespace jacknoordhuis\autoinv\event;
