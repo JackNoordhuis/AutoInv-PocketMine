@@ -7,3 +7,12 @@ general:
     player-death: false
     # Add explosion drops directly to the nearest entities inventory?
     entity-explosion: false
+    # Inventory full alerts
+    inventory-full:
+        active: true # Should we alert players when their inventory is full?
+        interval: 5 # Minimum time in seconds between inventory full messages
+        message:
+                text: "&bInventory full!" # Message (leave blank to disable)
+                secondary-text: "&7Clear some room in your inventory to collecting resources!" # Only used for titles
+                type: "title" # Message, tip, popup, title
+        sound: true # Play a sound?

@@ -20,7 +20,9 @@ namespace jacknoordhuis\autoinv\util\config;
 
 use jacknoordhuis\autoinv\event\handle\BlockBreakPickup;
 use jacknoordhuis\autoinv\event\handle\EntityExplosionPickup;
+use jacknoordhuis\autoinv\event\handle\InventoryFullPickup;
 use jacknoordhuis\autoinv\event\handle\PlayerDeathPickup;
+use jacknoordhuis\autoinv\util\ColorUtils;
 
 class EventConfigurationLoader extends ConfigurationLoader {
 
@@ -28,16 +30,20 @@ class EventConfigurationLoader extends ConfigurationLoader {
 		$manager = $this->getPlugin()->getEventManager();
 		$eventData = $data["general"]["events"];
 
-		if(self::getBoolean($eventData["block-break"])) {
+		if(self::getBoolean($eventData["block-break"] ?? false)) {
 			$manager->registerHandler(new BlockBreakPickup($manager));
 		}
 
-		if(self::getBoolean($eventData["player-death"])) {
+		if(self::getBoolean($eventData["player-death"] ?? false)) {
 			$manager->registerHandler(new PlayerDeathPickup($manager));
 		}
 
-		if(self::getBoolean($eventData["entity-explosion"])) {
+		if(self::getBoolean($eventData["entity-explosion"] ?? false)) {
 			$manager->registerHandler(new EntityExplosionPickup($manager));
+		}
+
+		if((($inventoryData = $eventData["inventory-full"]) ?? false) and self::getBoolean($inventoryData["active"])) {
+			$manager->registerHandler(new InventoryFullPickup($manager, $inventoryData["interval"], ColorUtils::translateColors($inventoryData["message"]["text"] ?? ""), ColorUtils::translateColors($inventoryData["message"]["secondary-text"] ?? ""),strtolower($inventoryData["message"]["type"] ?? "message"), $inventoryData["sound"] ?? false));
 		}
 	}
 
