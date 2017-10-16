@@ -1,7 +1,7 @@
 <component name="CopyrightManager">
   <copyright>
     <option name="allowReplaceRegexp" value="Copyright" />
-    <option name="notice" value="## Detect user and set author name accordingly&#10;#if ( &amp;#36;username == 'Jack' )&#10;    #set (&amp;#36;username = 'Jack Noordhuiss')&#10;#end&#10;&amp;#36;{file.fileName} – &amp;#36;{project.name}&#10;&#10;Copyright (C) 2015-&amp;#36;{today.year} Jack Noordhuis&#10;&#10;This program is free software: you can redistribute it and/or modify&#10;it under the terms of the GNU Lesser General Public License as published by&#10;the Free Software Foundation, either version 3 of the License, or&#10;(at your option) any later version.&#10;&#10;@author &amp;#36;{username}&#10;&#10;Last modified on &amp;#36;{file.lastModified.format('d/M/y')} at &amp;#36;{file.lastModified.format('h:mm a')}&#10;" />
+    <option name="notice" value="## Detect user and set author name accordingly&#10;#if ( &amp;#36;username == 'Jack' )&#10;    #set (&amp;#36;username = 'Jack Noordhuis')&#10;#end&#10;&amp;#36;{file.fileName} – &amp;#36;{project.name}&#10;&#10;Copyright (C) 2015-&amp;#36;{today.year} Jack Noordhuis&#10;&#10;This program is free software: you can redistribute it and/or modify&#10;it under the terms of the GNU Lesser General Public License as published by&#10;the Free Software Foundation, either version 3 of the License, or&#10;(at your option) any later version.&#10;&#10;@author &amp;#36;{username}&#10;&#10;Last modified on &amp;#36;{file.lastModified.format('d/M/y')} at &amp;#36;{file.lastModified.format('h:mm a')}&#10;" />
     <option name="myName" value="GNU license" />
   </copyright>
 </component>

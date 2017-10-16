@@ -10,9 +10,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author Jack Noordhuiss
+ * @author Jack Noordhuis
  *
- * Last modified on 16/10/2017 at 7:12 PM
+ * Last modified on 16/10/2017 at 7:55 PM
  *
  */
 

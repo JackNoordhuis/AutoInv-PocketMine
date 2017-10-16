@@ -1,7 +1,7 @@
 <?php
 
 /**
- * InventoryFullPickup.php – AutoInv
+ * InventoryFullAlert.php – AutoInv
  *
  * Copyright (C) 2015-2017 Jack Noordhuis
  *
@@ -10,9 +10,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author Jack Noordhuiss
+ * @author Jack Noordhuis
  *
- * Last modified on 16/10/2017 at 7:18 PM
+ * Last modified on 16/10/2017 at 8:29 PM
  *
  */
 
@@ -22,13 +22,11 @@ use jacknoordhuis\autoinv\event\EventHandler;
 use jacknoordhuis\autoinv\event\EventManager;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\EventPriority;
-use pocketmine\event\inventory\InventoryPickupItemEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\network\mcpe\protocol\LevelEventPacket;
 use pocketmine\Player;
-use pocketmine\utils\TextFormat;
 
-class InventoryFullPickup extends EventHandler {
+class InventoryFullAlert extends EventHandler {
 
 	/** @var int */
 	private $alertInterval;
@@ -42,6 +40,7 @@ class InventoryFullPickup extends EventHandler {
 	/** @var string */
 	private $messageType;
 
+	/** @var bool */
 	private $playSound;
 
 	/** @var array */
@@ -73,7 +72,7 @@ class InventoryFullPickup extends EventHandler {
 		foreach($event->getDrops() as $drop) {
 			if(!$player->getInventory()->canAddItem($drop)) {
 				$this->alert($player);
-				break; // only alert the player they can't hold more items once
+				break; // only alert the player once
 			}
 		}
 	}

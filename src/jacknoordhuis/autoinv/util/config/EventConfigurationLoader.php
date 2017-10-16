@@ -10,9 +10,9 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author Jack Noordhuiss
+ * @author Jack Noordhuis
  *
- * Last modified on 16/10/2017 at 7:12 PM
+ * Last modified on 16/10/2017 at 8:29 PM
  *
  */
 
@@ -20,7 +20,7 @@ namespace jacknoordhuis\autoinv\util\config;
 
 use jacknoordhuis\autoinv\event\handle\BlockBreakPickup;
 use jacknoordhuis\autoinv\event\handle\EntityExplosionPickup;
-use jacknoordhuis\autoinv\event\handle\InventoryFullPickup;
+use jacknoordhuis\autoinv\event\handle\InventoryFullAlert;
 use jacknoordhuis\autoinv\event\handle\PlayerDeathPickup;
 use jacknoordhuis\autoinv\util\ColorUtils;
 
@@ -43,7 +43,7 @@ class EventConfigurationLoader extends ConfigurationLoader {
 		}
 
 		if((($inventoryData = $eventData["inventory-full"]) ?? false) and self::getBoolean($inventoryData["active"])) {
-			$manager->registerHandler(new InventoryFullPickup($manager, $inventoryData["interval"], ColorUtils::translateColors($inventoryData["message"]["text"] ?? ""), ColorUtils::translateColors($inventoryData["message"]["secondary-text"] ?? ""),strtolower($inventoryData["message"]["type"] ?? "message"), $inventoryData["sound"] ?? false));
+			$manager->registerHandler(new InventoryFullAlert($manager, $inventoryData["interval"], ColorUtils::translateColors($inventoryData["message"]["text"] ?? ""), ColorUtils::translateColors($inventoryData["message"]["secondary-text"] ?? ""),strtolower($inventoryData["message"]["type"] ?? "message"), $inventoryData["sound"] ?? false));
 		}
 	}
 
