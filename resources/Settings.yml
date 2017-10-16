@@ -13,6 +13,6 @@ general:
         interval: 5 # Minimum time in seconds between inventory full messages
         message:
                 text: "&bInventory full!" # Message (leave blank to disable)
-                secondary-text: "&7Clear some room in your inventory to collecting resources!" # Only used for titles
+                secondary-text: "&7Clear some room in your inventory to keep collecting resources!" # Only used for titles
                 type: "title" # Message, tip, popup, title
         sound: true # Play a sound?
