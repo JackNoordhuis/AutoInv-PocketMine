@@ -1,5 +1,8 @@
 ---
-branches: master
+branches:
+  - master
+  - v0.0.6-dev
+  - 3.0.0-ALPHA9
 projects:
   AutoInv:
     path: ""
