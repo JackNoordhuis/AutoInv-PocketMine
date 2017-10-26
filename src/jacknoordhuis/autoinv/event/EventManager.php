@@ -12,8 +12,6 @@
  *
  * @author Jack Noordhuis
  *
- * Last modified on 16/10/2017 at 7:55 PM
- *
  */
 
 namespace jacknoordhuis\autoinv\event;

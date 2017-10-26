@@ -12,8 +12,6 @@
  *
  * @author Jack Noordhuis
  *
- * Last modified on 16/10/2017 at 7:13 PM
- *
  */
 
 namespace jacknoordhuis\autoinv\util\config;
