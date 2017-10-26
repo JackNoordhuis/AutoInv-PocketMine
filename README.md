@@ -17,5 +17,5 @@ You can grab the latest (compiled) development builds of AutoInv over on [poggit
 Found a problem with AutoInv? Make sure to open an issue on the [issue tracker](https://github.com/JackNoordhuis/AutoInv/issues) and we'll get it sorted!
 
 
-__The content of this repo is licensed under the GNU Lesser General Public License v2.1. A full copy of the license is
+__The content of this repo is licensed under the GNU Lesser General Public License v3. A full copy of the license is
 available [here](LICENSE).__
