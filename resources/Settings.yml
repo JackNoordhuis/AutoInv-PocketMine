@@ -5,6 +5,8 @@ general:
     block-break: true
     # Add players inventory contents directly to their last attackers inventory on death?
     player-death: false
+    # Add non-player entity drops directly to their last attackers inventory on death?
+    entity-death: false
     # Add explosion drops directly to the nearest entities inventory?
     entity-explosion: false
     # Inventory full alerts

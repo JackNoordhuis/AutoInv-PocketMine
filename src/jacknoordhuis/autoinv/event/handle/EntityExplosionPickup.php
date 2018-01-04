@@ -36,7 +36,7 @@ class EntityExplosionPickup extends EventHandler {
 	 *
 	 * @param EntityExplodeEvent $event
 	 */
-	public function handleEntityExplode(EntityExplodeEvent $event) {
+	public function handleEntityExplode(EntityExplodeEvent $event) : void {
 		$explosive = $event->getEntity();
 		$closest = PHP_INT_MAX;
 		$entity = null;

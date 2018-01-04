@@ -65,7 +65,7 @@ class InventoryFullAlert extends EventHandler {
 	 *
 	 * @param BlockBreakEvent $event
 	 */
-	public function handleBlockBreak(BlockBreakEvent $event) {
+	public function handleBlockBreak(BlockBreakEvent $event) : void {
 		$player = $event->getPlayer();
 		foreach($event->getDrops() as $drop) {
 			if(!$player->getInventory()->canAddItem($drop)) {

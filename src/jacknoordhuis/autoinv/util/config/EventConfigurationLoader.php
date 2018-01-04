@@ -17,6 +17,7 @@
 namespace jacknoordhuis\autoinv\util\config;
 
 use jacknoordhuis\autoinv\event\handle\BlockBreakPickup;
+use jacknoordhuis\autoinv\event\handle\EntityDeathPickup;
 use jacknoordhuis\autoinv\event\handle\EntityExplosionPickup;
 use jacknoordhuis\autoinv\event\handle\InventoryFullAlert;
 use jacknoordhuis\autoinv\event\handle\PlayerDeathPickup;
@@ -34,6 +35,10 @@ class EventConfigurationLoader extends ConfigurationLoader {
 
 		if(self::getBoolean($eventData["player-death"] ?? false)) {
 			$manager->registerHandler(new PlayerDeathPickup($manager));
+		}
+
+		if(self::getBoolean($eventData["entity-death"] ?? false)) {
+			$manager->registerHandler(new EntityDeathPickup($manager));
 		}
 
 		if(self::getBoolean($eventData["entity-explosion"] ?? false)) {

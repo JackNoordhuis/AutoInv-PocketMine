@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PlayerDeathPickup.php – AutoInv
+ * EntityDeathPickup.php – AutoInv
  *
  * Copyright (C) 2015-2017 Jack Noordhuis
  *
@@ -18,24 +18,19 @@ namespace jacknoordhuis\autoinv\event\handle;
 
 use jacknoordhuis\autoinv\event\EventHandler;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityDeathEvent;
 use pocketmine\event\EventPriority;
-use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\inventory\InventoryHolder;
 
-class PlayerDeathPickup extends EventHandler {
+class EntityDeathPickup extends EventHandler {
 
 	public function handles() : array {
 		return [
-			PlayerDeathEvent::class => "handlePlayerDeath",
+			EntityDeathEvent::class => "handleEntityDeath",
 		];
 	}
 
-	/**
-	 * Handle automatic item pickup on player death
-	 *
-	 * @param PlayerDeathEvent $event
-	 */
-	public function handlePlayerDeath(PlayerDeathEvent $event) : void {
+	public function handleEntityDeath(EntityDeathEvent $event) : void {
 		$victim = $event->getEntity();
 		$cause = $victim->getLastDamageCause();
 		if($cause instanceof EntityDamageByEntityEvent) {
