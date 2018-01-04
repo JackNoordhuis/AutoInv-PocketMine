@@ -7,10 +7,10 @@
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../PMMP/PocketMine-MP" />
+          <root url="file://$USER_HOME$/Stuff/PMMP/PocketMine-MP" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../PMMP/PocketMine-MP" />
+          <root url="file://$USER_HOME$/Stuff/PMMP/PocketMine-MP" />
         </SOURCES>
       </library>
     </orderEntry>

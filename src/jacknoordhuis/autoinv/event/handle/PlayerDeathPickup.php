@@ -35,7 +35,7 @@ class PlayerDeathPickup extends EventHandler {
 	 *
 	 * @param PlayerDeathEvent $event
 	 */
-	public function handleBPlayerDeath(PlayerDeathEvent $event) {
+	public function handlePlayerDeath(PlayerDeathEvent $event) {
 		$victim = $event->getEntity();
 		$cause = $victim->getLastDamageCause();
 		if($cause instanceof EntityDamageByEntityEvent) {
