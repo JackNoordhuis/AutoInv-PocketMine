@@ -2,7 +2,7 @@ AutoInv Plugin
 ===============
 _Helps reduce lag on your server!_
 
-[![Poggit-CI](https://poggit.pmmp.io/ci.shield/JackNoordhuis/AutoInv/AutoInv)](https://poggit.pmmp.io/ci/JackNoordhuis/AutoInv/AutoInv)
+[![Poggit-CI](https://poggit.pmmp.io/ci.shield/JackNoordhuis/AutoInv-PocketMine/AutoInv)](https://poggit.pmmp.io/ci/JackNoordhuis/AutoInv/AutoInv)
 
 ### About
 
@@ -10,7 +10,7 @@ AutoInv is a [PocketMine-MP](https://github.com/pmmp/PocketMine-MP) plugin that 
 
 ### Download
 
-You can grab the latest (compiled) development builds of AutoInv over on [poggit](https://poggit.pmmp.io/ci/JackNoordhuis/AutoInv/AutoInv)!
+You can grab the latest (compiled) development builds of AutoInv over on [poggit](https://poggit.pmmp.io/ci/JackNoordhuis/AutoInv-PocketMine/AutoInv)!
 
 ### Issues
 
