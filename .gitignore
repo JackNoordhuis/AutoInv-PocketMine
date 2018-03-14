@@ -1,4 +1,5 @@
 # PHPStom garbage
+obfuscation-exemptions.txt
 
 # User specific stuff
 .idea/**/workspace.xml
