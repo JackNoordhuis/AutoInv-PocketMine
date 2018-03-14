@@ -1,18 +1,6 @@
 # PHPStom garbage
+.idea
 obfuscation-exemptions.txt
-
-# User specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/dictionaries
-
-# Sensitive or high-churn files
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.xml
-.idea/**/sqldataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
 
 # File-based project format:
 *.iws
