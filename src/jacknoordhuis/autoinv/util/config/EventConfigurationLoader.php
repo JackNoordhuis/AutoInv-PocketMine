@@ -21,7 +21,7 @@ use jacknoordhuis\autoinv\event\handle\EntityDeathPickup;
 use jacknoordhuis\autoinv\event\handle\EntityExplosionPickup;
 use jacknoordhuis\autoinv\event\handle\InventoryFullAlert;
 use jacknoordhuis\autoinv\event\handle\PlayerDeathPickup;
-use jacknoordhuis\autoinv\util\ColorUtils;
+use pocketmine\utils\TextFormat;
 
 class EventConfigurationLoader extends ConfigurationLoader {
 
@@ -46,7 +46,7 @@ class EventConfigurationLoader extends ConfigurationLoader {
 		}
 
 		if((($inventoryData = $eventData["inventory-full"]) ?? false) and self::getBoolean($inventoryData["active"])) {
-			$manager->registerHandler(new InventoryFullAlert($manager, $inventoryData["interval"], ColorUtils::translateColors($inventoryData["message"]["text"] ?? ""), ColorUtils::translateColors($inventoryData["message"]["secondary-text"] ?? ""),strtolower($inventoryData["message"]["type"] ?? "message"), $inventoryData["sound"] ?? false));
+			$manager->registerHandler(new InventoryFullAlert($manager, $inventoryData["interval"], TextFormat::colorize($inventoryData["message"]["text"] ?? ""), TextFormat::colorize($inventoryData["message"]["secondary-text"] ?? ""), strtolower($inventoryData["message"]["type"] ?? "message"), $inventoryData["sound"] ?? false));
 		}
 	}
 

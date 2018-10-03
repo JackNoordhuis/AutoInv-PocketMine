@@ -1,4 +1,4 @@
-###  AutoInv v0.0.9 configuration file  ###
+###  AutoInv v0.0.10 configuration file  ###
 general:
   events:
     # Add block drops directly to players' inventories?
