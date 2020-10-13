@@ -34,6 +34,7 @@ class BlockBreakPickup extends EventHandler {
 	 * @param BlockBreakEvent $event
 	 */
 	public function handleBlockBreak(BlockBreakEvent $event) : void {
+		if($event->isCancelled()) return;
 		foreach($event->getDrops() as $drop) {
 			$event->getPlayer()->getInventory()->addItem($drop);
 		}
