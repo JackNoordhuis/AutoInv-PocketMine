@@ -9,4 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: nxtlvlsoftware/pmmp-phpstan-action@3
+    - uses: nxtlvlsoftware/run-phpstan-pmmp-action@83ac7a8bb68fb18f3e7153aea78fe9c8448772bd
+      with:
+        pmmp-version: 3.28.0
