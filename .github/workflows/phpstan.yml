@@ -12,5 +12,3 @@ jobs:
     - uses: nxtlvlsoftware/run-phpstan-pmmp-action@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        pmmp-version: 3.28.0
