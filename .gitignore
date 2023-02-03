@@ -92,5 +92,5 @@ $RECYCLE.BIN/
 
 
 # Composer garbage
-compoer.phar
+composer.phar
 /vendor/
