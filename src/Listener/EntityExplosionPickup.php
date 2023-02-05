@@ -35,7 +35,8 @@ class EntityExplosionPickup implements Listener {
 	public function handleEntityExplode(EntityExplodeEvent $event) : void {
 		$entity = $this->findEntityInventoryHolder($event->getEntity());
 		$items = $this->getExplosionDrops($event->getBlockList(), $event->getYield());
-		$event->setYield(0); // set yield percentage to 0 so pocketmine doesn't produce drops
+		$event->setBlockList([]); // remove pocketmine drops
+		$event->setYield(0); // set yield percentage to 0
 		if($entity === null) {
 			(new NoAutoPickupCandidateFound($items, $event->getEntity()->getPosition()))
 				->call();
