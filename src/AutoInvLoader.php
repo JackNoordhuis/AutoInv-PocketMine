@@ -93,10 +93,6 @@ class AutoInvLoader extends PluginBase {
 	 * @return bool
 	 */
 	private static function getConfigBool(mixed $value) : bool {
-		if(is_bool($value)) {
-			return $value;
-		}
-
 		return match (is_string($value) ? strtolower($value) : $value) {
 			false, 'off', 'false', 'no', 0 => false,
 			default => true,
