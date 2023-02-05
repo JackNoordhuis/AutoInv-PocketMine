@@ -62,7 +62,6 @@ class EntityExplosionPickup implements Listener {
 		$searchBb = $near->getBoundingBox()->expand($searchRange, $searchRange, $searchRange);
 		$pos = $near->getPosition();
 		$closest = PHP_INT_MAX;
-		/** @var Entity&InventoryHolder|null $entity */
 		$entity = null;
 		foreach($near->getWorld()->getNearbyEntities($searchBb) as $nearby) {
 			$dist = $pos->distance($nearby->getPosition());
@@ -72,6 +71,7 @@ class EntityExplosionPickup implements Listener {
 			}
 		}
 
+		/** @var null|Entity&InventoryHolder $entity */
 		return $entity;
 	}
 
