@@ -19,7 +19,6 @@ use JackNoordhuis\AutoInv\Listener\PlayerDeathPickup;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
-use SplFileInfo;
 use function is_bool;
 use function is_string;
 use function strtolower;
@@ -41,14 +40,13 @@ class AutoInvLoader extends PluginBase {
 	 * Called when the plugin is enabled
 	 */
 	protected function onEnable() : void {
-		$this->loadConfiguration(new SplFileInfo(
+		$this->loadConfiguration(yaml_parse_file(
 			$this->getDataFolder() . DIRECTORY_SEPARATOR . self::SETTINGS_CONFIG
 		));
 	}
 
-	private function loadConfiguration(SplFileInfo $settingsConfig) : void {
-		$config = yaml_parse_file($settingsConfig->getPathname());
-		$eventConfig = $config["general"]["events"];
+	private function loadConfiguration(array $settings) : void {
+		$eventConfig = $settings["general"]["events"];
 
 		if(self::getConfigBool($eventConfig["block-break"] ?? false)) {
 			$this->registerListener(new BlockBreakAutoPickup);
@@ -100,7 +98,7 @@ class AutoInvLoader extends PluginBase {
 		}
 
 		return match (is_string($value) ? strtolower($value) : $value) {
-			'off', 'false', 'no', 0 => false,
+			false, 'off', 'false', 'no', 0 => false,
 			default => true,
 		};
 	}
