@@ -31,7 +31,7 @@ class DropItemsAfterPickup implements Listener {
 		$event->setRemainingItems([]);
 		foreach($items as $item) {
 			$world->dropItem(
-				$pos->add(random_int(-3, 3), 0, random_int(-3, 3)),
+				$pos,
 				$item
 			);
 		}

@@ -19,6 +19,6 @@ general:
                 type: "title" # Message, tip, popup, title
         sound: true # Play a sound?
     # What to do with items that do not fit in players inventories
-    # drop = items are dropped in a 3x3 area around the player whose inventory is full
+    # drop = items are dropped at position of player whose inventory is full
     # delete = doesn't drop any items
     remaining-items: drop
