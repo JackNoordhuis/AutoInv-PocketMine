@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Permission is granted to use and/or modify this software under the terms of the MIT License.
  */
 
-namespace JackNoordhuis\AutoInv\event;
+namespace JackNoordhuis\AutoInv\Event;
 
 use pocketmine\world\Position;
 

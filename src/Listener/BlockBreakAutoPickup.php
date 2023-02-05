@@ -8,9 +8,9 @@ declare(strict_types=1);
  * Permission is granted to use and/or modify this software under the terms of the MIT License.
  */
 
-namespace JackNoordhuis\AutoInv\listener;
+namespace JackNoordhuis\AutoInv\Listener;
 
-use JackNoordhuis\AutoInv\event\ItemsRemainingAfterAutoPickup;
+use JackNoordhuis\AutoInv\Event\ItemsRemainingAfterAutoPickup;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
 

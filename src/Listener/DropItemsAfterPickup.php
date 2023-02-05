@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace JackNoordhuis\AutoInv\Listener;
 
 use JackNoordhuis\AutoInv\Event\ItemsRemainingAfterAutoPickup;
-use JackNoordhuis\AutoInv\event\NoAutoPickupCandidateFound;
+use JackNoordhuis\AutoInv\Event\NoAutoPickupCandidateFound;
 use pocketmine\event\Listener;
 use function random_int;
 
@@ -20,7 +20,7 @@ class DropItemsAfterPickup implements Listener {
 	/**
 	 * Handle dropping remaining items from auto pickup.
 	 *
-	 * @param \JackNoordhuis\AutoInv\event\ItemsRemainingAfterAutoPickup $event
+	 * @param \JackNoordhuis\AutoInv\Event\ItemsRemainingAfterAutoPickup $event
 	 *
 	 * @priority HIGHEST
 	 */
@@ -40,7 +40,7 @@ class DropItemsAfterPickup implements Listener {
 	/**
 	 * Handle dropping items when no player was found for auto pickup.
 	 *
-	 * @param \JackNoordhuis\AutoInv\event\NoAutoPickupCandidateFound $event
+	 * @param \JackNoordhuis\AutoInv\Event\NoAutoPickupCandidateFound $event
 	 *
 	 * @priority HIGHEST
 	 */

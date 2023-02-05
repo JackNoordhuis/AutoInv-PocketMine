@@ -8,9 +8,9 @@ declare(strict_types=1);
  * Permission is granted to use and/or modify this software under the terms of the MIT License.
  */
 
-namespace JackNoordhuis\AutoInv\listener\alert;
+namespace JackNoordhuis\AutoInv\Listener;
 
-use JackNoordhuis\AutoInv\event\ItemsRemainingAfterAutoPickup;
+use JackNoordhuis\AutoInv\Event\ItemsRemainingAfterAutoPickup;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\network\mcpe\protocol\LevelEventPacket;
@@ -37,7 +37,7 @@ class InventoryFullAlert implements Listener {
 	/**
 	 * Handle inventory full alerts on block break.
 	 *
-	 * @param \JackNoordhuis\AutoInv\event\ItemsRemainingAfterAutoPickup $event
+	 * @param \JackNoordhuis\AutoInv\Event\ItemsRemainingAfterAutoPickup $event
 	 *
 	 * @priority MONITOR
 	 */

@@ -8,10 +8,10 @@ declare(strict_types=1);
  * Permission is granted to use and/or modify this software under the terms of the MIT License.
  */
 
-namespace JackNoordhuis\AutoInv\listener;
+namespace JackNoordhuis\AutoInv\Listener;
 
-use JackNoordhuis\AutoInv\event\ItemsRemainingAfterAutoPickup;
-use JackNoordhuis\AutoInv\event\NoAutoPickupCandidateFound;
+use JackNoordhuis\AutoInv\Event\ItemsRemainingAfterAutoPickup;
+use JackNoordhuis\AutoInv\Event\NoAutoPickupCandidateFound;
 use pocketmine\block\tile\Container;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Explosive;

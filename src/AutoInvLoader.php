@@ -10,13 +10,12 @@ declare(strict_types=1);
 
 namespace JackNoordhuis\AutoInv;
 
-use JackNoordhuis\AutoInv\exception\LoadAutoInvException;
-use JackNoordhuis\AutoInv\listener\alert\InventoryFullAlert;
-use JackNoordhuis\AutoInv\listener\BlockBreakAutoPickup;
+use JackNoordhuis\AutoInv\Listener\InventoryFullAlert;
+use JackNoordhuis\AutoInv\Listener\BlockBreakAutoPickup;
 use JackNoordhuis\AutoInv\Listener\DropItemsAfterPickup;
-use JackNoordhuis\AutoInv\listener\EntityDeathAutoPickup;
-use JackNoordhuis\AutoInv\listener\EntityExplosionPickup;
-use JackNoordhuis\AutoInv\listener\PlayerDeathPickup;
+use JackNoordhuis\AutoInv\Listener\EntityDeathAutoPickup;
+use JackNoordhuis\AutoInv\Listener\EntityExplosionPickup;
+use JackNoordhuis\AutoInv\Listener\PlayerDeathPickup;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
@@ -25,6 +24,7 @@ use function is_bool;
 use function is_string;
 use function strtolower;
 use function yaml_parse_file;
+use const DIRECTORY_SEPARATOR;
 
 class AutoInvLoader extends PluginBase {
 
@@ -34,20 +34,20 @@ class AutoInvLoader extends PluginBase {
 	 * Called when the plugin is loaded, before calling onEnable()
 	 */
 	protected function onLoad() : void {
-		if(!$this->saveResource(self::SETTINGS_CONFIG)) {
-			throw new LoadAutoInvException("Could not save resource '" . self::SETTINGS_CONFIG . "'. Are you using a modified build?");
-		}
+		$this->saveResource(self::SETTINGS_CONFIG);
 	}
 
 	/**
 	 * Called when the plugin is enabled
 	 */
 	protected function onEnable() : void {
-		$this->loadConfiguration($this->getResources()[self::SETTINGS_CONFIG]);
+		$this->loadConfiguration(new SplFileInfo(
+			$this->getDataFolder() . DIRECTORY_SEPARATOR . self::SETTINGS_CONFIG
+		));
 	}
 
 	private function loadConfiguration(SplFileInfo $settingsConfig) : void {
-		$config = yaml_parse_file($settingsConfig->getRealPath());
+		$config = yaml_parse_file($settingsConfig->getPathname());
 		$eventConfig = $config["general"]["events"];
 
 		if(self::getConfigBool($eventConfig["block-break"] ?? false)) {
