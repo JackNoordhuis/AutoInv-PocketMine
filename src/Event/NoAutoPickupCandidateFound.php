@@ -15,14 +15,14 @@ use pocketmine\world\Position;
 class NoAutoPickupCandidateFound extends AutoInvEvent {
 
 	/**
-	 * @param \JackNoordhuis\AutoInv\AutoInvLoader $loader
-	 * @param \pocketmine\item\Item[]              $items
-	 * @param \pocketmine\world\Position           $dropPosition
+	 * @param \pocketmine\item\Item[]    $items
+	 * @param \pocketmine\world\Position $dropPosition
 	 */
 	public function __construct(
-		private array                  $items,
+		private array    $items,
 		private Position $dropPosition
-	) {}
+	) {
+	}
 
 	/**
 	 * @return \pocketmine\item\Item[]

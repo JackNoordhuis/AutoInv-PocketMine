@@ -16,14 +16,14 @@ use pocketmine\inventory\InventoryHolder;
 class ItemsRemainingAfterAutoPickup extends AutoInvEvent {
 
 	/**
-	 * @param \JackNoordhuis\AutoInv\AutoInvLoader                            $loader
 	 * @param \pocketmine\item\Item[]                                         $remainingItems
 	 * @param \pocketmine\entity\Entity&\pocketmine\inventory\InventoryHolder $pickedUpBy
 	 */
 	public function __construct(
 		private array                  $remainingItems,
 		private Entity&InventoryHolder $pickedUpBy
-	) {}
+	) {
+	}
 
 	/**
 	 * @return \pocketmine\item\Item[]
