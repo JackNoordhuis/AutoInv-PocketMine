@@ -68,7 +68,7 @@ class InventoryFullAlert implements Listener {
 	 * @param \pocketmine\player\Player $player
 	 */
 	protected function alert(Player $player) : void {
-		if(isset($this->recentAlerts[$hash = spl_object_hash($player)]) && (isset($this->recentAlerts[$hash]) and ($time = microtime(true)) - $this->recentAlerts[$hash] >= $this->alertInterval)) {
+		if(isset($this->recentAlerts[$hash = spl_object_hash($player)]) && (($time = microtime(true)) - $this->recentAlerts[$hash] <= $this->alertInterval)) {
 			return;
 		}
 		$this->recentAlerts[$hash] = $time ?? microtime(true);
