@@ -22,7 +22,7 @@ use function spl_object_hash;
 class InventoryFullAlert implements Listener {
 
 	/**
-	 * @var array<string, int>
+	 * @var array<string, float>
 	 */
 	private array $recentAlerts = [];
 

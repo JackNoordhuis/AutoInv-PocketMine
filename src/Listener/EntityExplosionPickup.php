@@ -20,6 +20,7 @@ use pocketmine\event\Listener;
 use pocketmine\inventory\InventoryHolder;
 use pocketmine\item\VanillaItems;
 use function array_merge;
+use function floor;
 use function random_int;
 use const PHP_INT_MAX;
 
@@ -52,15 +53,16 @@ class EntityExplosionPickup implements Listener {
 	/**
 	 * Find the entity closest to an explosion given a search range.
 	 *
-	 * @param \pocketmine\entity\Explosive $near
-	 * @param int                          $searchRange
+	 * @param \pocketmine\entity\Entity $near
+	 * @param int                       $searchRange
 	 *
 	 * @return (\pocketmine\entity\Entity&\pocketmine\inventory\InventoryHolder)|null
 	 */
-	private function findEntityInventoryHolder(Explosive $near, int $searchRange = 24) : (Entity&InventoryHolder)|null {
+	private function findEntityInventoryHolder(Entity $near, int $searchRange = 24) : (Entity&InventoryHolder)|null {
 		$searchBb = $near->getBoundingBox()->expand($searchRange, $searchRange, $searchRange);
 		$pos = $near->getPosition();
 		$closest = PHP_INT_MAX;
+		/** @var Entity&InventoryHolder|null $entity */
 		$entity = null;
 		foreach($near->getWorld()->getNearbyEntities($searchBb) as $nearby) {
 			$dist = $pos->distance($nearby->getPosition());
@@ -76,9 +78,8 @@ class EntityExplosionPickup implements Listener {
 	/**
 	 * Get the items that would normally be dropped in an explosion.
 	 *
-	 * @param \pocketmine\inventory\Inventory $inventory
-	 * @param \pocketmine\block\Block[]       $blocks
-	 * @param float                           $yield
+	 * @param \pocketmine\block\Block[] $blocks
+	 * @param float                     $yield
 	 *
 	 * @return \pocketmine\item\Item[] Items that could not be added to the inventory.
 	 */
@@ -91,7 +92,7 @@ class EntityExplosionPickup implements Listener {
 			if(random_int(0, 100) < $yield) {
 				$items = array_merge($items, $block->getDrops($air));
 			}
-			if(($tile = $world->getTileAt($pos->x, $pos->y, $pos->z)) !== null) {
+			if(($tile = $world->getTileAt((int)floor($pos->x), (int)floor($pos->y), (int)floor($pos->z))) !== null) {
 				if($tile instanceof Container) {
 					$tileInventory = $tile->getRealInventory();
 					$items = array_merge($items, $tileInventory->getContents());
